@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Lux Properties</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="page-transition">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="lux-logo">LUX</div>
+                <div class="logo-subtitle">PROPERTIES</div>
+            </a>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="properties.html" class="nav-link">Properties</a>
+                <a href="agents.html" class="nav-link">Agents</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="dashboard.html" class="nav-link auth-link active" id="authLink">Dashboard</a>
+            </div>
+
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Header -->
+    <section class="dashboard-header">
+        <div class="container">
+            <div class="dashboard-welcome">
+                <h1 id="userGreeting">Welcome back, John</h1>
+                <p>Your personalized real estate dashboard</p>
+                <div class="dashboard-stats">
+                    <div class="dashboard-stat">
+                        <div class="stat-value" id="savedCount">0</div>
+                        <div class="stat-label">Saved Properties</div>
+                    </div>
+                    <div class="dashboard-stat">
+                        <div class="stat-value" id="viewedCount">0</div>
+                        <div class="stat-label">Recently Viewed</div>
+                    </div>
+                    <div class="dashboard-stat">
+                        <div class="stat-value" id="chatCount">0</div>
+                        <div class="stat-label">Active Chats</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Content -->
+    <section class="dashboard">
+        <div class="container">
+            <div class="dashboard-grid">
+                <!-- Saved Properties -->
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-heart"></i> Saved Properties</h3>
+                    <div class="dashboard-content" id="savedProperties">
+                        <!-- Saved properties will be loaded here -->
+                    </div>
+                    <div class="dashboard-action">
+                        <a href="properties.html" class="btn btn-outline btn-block">
+                            <i class="fas fa-search"></i> Browse More Properties
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Recently Viewed -->
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-eye"></i> Recently Viewed</h3>
+                    <div class="dashboard-content" id="recentViews">
+                        <!-- Recent views will be loaded here -->
+                    </div>
+                    <div class="dashboard-action">
+                        <button class="btn btn-outline btn-block" onclick="clearRecentViews()">
+                            <i class="fas fa-trash"></i> Clear History
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Active Chats -->
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-comments"></i> Active Chats</h3>
+                    <div class="dashboard-content" id="activeChats">
+                        <!-- Active chats will be loaded here -->
+                    </div>
+                    <div class="dashboard-action">
+                        <button class="btn btn-outline btn-block" onclick="startChatWithAgent('Admin')">
+                            <i class="fas fa-comment"></i> Start New Chat
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+                    <div class="quick-actions">
+                        <button class="quick-action-btn" onclick="window.location.href='contact.html'">
+                            <i class="fas fa-home"></i>
+                            <span>List Property</span>
+                        </button>
+                        <button class="quick-action-btn" onclick="window.location.href='contact.html?subject=valuation'">
+                            <i class="fas fa-calculator"></i>
+                            <span>Get Valuation</span>
+                        </button>
+                        <button class="quick-action-btn" onclick="window.location.href='agents.html'">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Find Agent</span>
+                        </button>
+                        <button class="quick-action-btn" onclick="window.print()">
+                            <i class="fas fa-print"></i>
+                            <span>Print Dashboard</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property Alerts -->
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-bell"></i> Property Alerts</h3>
+                    <div class="alerts-list">
+                        <div class="alert-item">
+                            <div class="alert-icon">
+                                <i class="fas fa-tag"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h4>Price Drop Alert</h4>
+                                <p>A property in your saved list has reduced in price</p>
+                                <small>2 hours ago</small>
+                            </div>
+                        </div>
+                        <div class="alert-item">
+                            <div class="alert-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h4>New Listing Match</h4>
+                                <p>New property matching your criteria in Banana Island</p>
+                                <small>1 day ago</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-action">
+                        <button class="btn btn-outline btn-block" onclick="configureAlerts()">
+                            <i class="fas fa-cog"></i> Configure Alerts
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Market Insights -->
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-chart-line"></i> Market Insights</h3>
+                    <div class="insights-content">
+                        <div class="insight-item">
+                            <h4>Lagos Market Update</h4>
+                            <p>Property prices in Victoria Island have increased by 8% this quarter.</p>
+                            <small>Last updated: 1 week ago</small>
+                        </div>
+                        <div class="insight-item">
+                            <h4>Investment Opportunity</h4>
+                            <p>High demand for rental properties in Abuja's city center.</p>
+                            <small>Last updated: 2 weeks ago</small>
+                        </div>
+                    </div>
+                    <div class="dashboard-action">
+                        <a href="about.html#market-analysis" class="btn btn-outline btn-block">
+                            <i class="fas fa-book"></i> Read More Insights
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Settings -->
+            <div class="dashboard-settings">
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-user-cog"></i> Account Settings</h3>
+                    <div class="settings-grid">
+                        <div class="setting-item">
+                            <h4>Personal Information</h4>
+                            <p>Update your contact details and preferences</p>
+                            <button class="btn btn-outline btn-sm" onclick="editProfile()">
+                                <i class="fas fa-edit"></i> Edit Profile
+                            </button>
+                        </div>
+                        <div class="setting-item">
+                            <h4>Notification Preferences</h4>
+                            <p>Manage how you receive updates and alerts</p>
+                            <button class="btn btn-outline btn-sm" onclick="manageNotifications()">
+                                <i class="fas fa-bell"></i> Manage
+                            </button>
+                        </div>
+                        <div class="setting-item">
+                            <h4>Privacy & Security</h4>
+                            <p>Update password and privacy settings</p>
+                            <button class="btn btn-outline btn-sm" onclick="securitySettings()">
+                                <i class="fas fa-lock"></i> Security
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="lux-logo">LUX</div>
+                        <div class="logo-subtitle">PROPERTIES</div>
+                    </div>
+                    <p class="footer-text">
+                        Premium real estate solutions across Nigeria. Verified listings, trusted agents, seamless transactions.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="agents.html">Agents</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="properties.html?type=buy">Buy Property</a></li>
+                        <li><a href="properties.html?type=rent">Rent Property</a></li>
+                        <li><a href="contact.html">Sell Property</a></li>
+                        <li><a href="contact.html">Property Valuation</a></li>
+                        <li><a href="contact.html">Legal Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Victoria Island, Lagos, Nigeria</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+234 90*******</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@luxproperties.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Fri: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Lux Properties. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header">
+            <div class="chat-title">
+                <i class="fas fa-comments"></i>
+                <span>Live Chat</span>
+            </div>
+            <button class="chat-close" id="chatClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+        <button class="chat-toggle" id="chatToggle">
+            <i class="fas fa-comments"></i>
+        </button>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/chat.js"></script>
+    <script>
+        // Dashboard functions
+        function updateDashboardStats() {
+            const user = JSON.parse(localStorage.getItem('lux_user'));
+            if (!user) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Update counts
+            document.getElementById('savedCount').textContent = user.savedProperties?.length || 0;
+            document.getElementById('viewedCount').textContent = user.recentViews?.length || 0;
+            
+            // Update chat count
+            const messages = JSON.parse(localStorage.getItem('lux_chat_messages') || '[]');
+            document.getElementById('chatCount').textContent = messages.length > 1 ? '1+' : '0';
+        }
+
+        function clearRecentViews() {
+            const user = JSON.parse(localStorage.getItem('lux_user'));
+            if (!user) return;
+
+            const users = JSON.parse(localStorage.getItem('lux_users') || '[]');
+            const userIndex = users.findIndex(u => u.id === user.id);
+            
+            if (userIndex !== -1) {
+                users[userIndex].recentViews = [];
+                user.recentViews = [];
+                
+                localStorage.setItem('lux_users', JSON.stringify(users));
+                localStorage.setItem('lux_user', JSON.stringify(user));
+                
+                updateDashboardStats();
+                
+                // Reload recent views
+                const auth = window.authSystem;
+                if (auth && typeof auth.loadRecentViews === 'function') {
+                    auth.loadRecentViews();
+                }
+                
+                showNotification('Recent views cleared successfully', 'success');
+            }
+        }
+
+        function configureAlerts() {
+            showNotification('Alert configuration will be available soon', 'info');
+        }
+
+        function editProfile() {
+            showNotification('Profile editing will be available soon', 'info');
+        }
+
+        function manageNotifications() {
+            showNotification('Notification management will be available soon', 'info');
+        }
+
+        function securitySettings() {
+            showNotification('Security settings will be available soon', 'info');
+        }
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            updateDashboardStats();
+            
+            // Check if user is logged in
+            const user = JSON.parse(localStorage.getItem('lux_user'));
+            if (!user) {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+</body>
+</html>

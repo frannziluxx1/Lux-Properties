@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Agents | Lux Properties</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="page-transition">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="lux-logo">LUX</div>
+                <div class="logo-subtitle">PROPERTIES</div>
+            </a>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="properties.html" class="nav-link">Properties</a>
+                <a href="agents.html" class="nav-link active">Agents</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="login.html" class="nav-link auth-link" id="authLink">Login</a>
+            </div>
+
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Agents Hero -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="gradient-animation"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="reveal-text">Meet Our</span>
+                    <span class="reveal-text delay-1">Expert Agents</span>
+                </h1>
+                <p class="hero-subtitle fade-in-up">
+                    Professional real estate consultants dedicated to finding your perfect property.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agents Grid -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title fade-in">Our Team of Experts</h2>
+                <p class="section-subtitle fade-in">
+                    Each agent specializes in specific property types and locations across Nigeria
+                </p>
+            </div>
+
+            <div class="agents-grid" id="agentsContainer">
+                <!-- Agents will be loaded via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Our Agents -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title fade-in">Why Work With Our Agents</h2>
+                <p class="section-subtitle fade-in">Expertise that makes a difference in your property journey</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Certified Professionals</h3>
+                    <p>All our agents are certified real estate professionals with extensive training and continuous education.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Local Market Expertise</h3>
+                    <p>Deep knowledge of local markets across Nigeria, providing valuable insights and accurate valuations.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Negotiation Experts</h3>
+                    <p>Skilled negotiators who ensure you get the best possible deal, whether buying, selling, or renting.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Verified Listings</h3>
+                    <p>All properties are thoroughly vetted for legal compliance and accurate information before listing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Need Expert Real Estate Advice?</h2>
+                <p class="cta-text">Connect with one of our agents today for personalized assistance.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-light" onclick="startChatWithAgent('Agent Consultation')">
+                        <i class="fas fa-comments"></i> Chat with Agent
+                    </button>
+                    <a href="contact.html" class="btn btn-outline-light">
+                        <i class="fas fa-phone"></i> Call Office
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="lux-logo">LUX</div>
+                        <div class="logo-subtitle">PROPERTIES</div>
+                    </div>
+                    <p class="footer-text">
+                        Premium real estate solutions across Nigeria. Verified listings, trusted agents, seamless transactions.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="agents.html">Agents</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="properties.html?type=buy">Buy Property</a></li>
+                        <li><a href="properties.html?type=rent">Rent Property</a></li>
+                        <li><a href="contact.html">Sell Property</a></li>
+                        <li><a href="contact.html">Property Valuation</a></li>
+                        <li><a href="contact.html">Legal Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Victoria Island, Lagos, Nigeria</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+234 90*******</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@luxproperties.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Fri: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Lux Properties. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header">
+            <div class="chat-title">
+                <i class="fas fa-comments"></i>
+                <span>Live Chat</span>
+            </div>
+            <button class="chat-close" id="chatClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+        <button class="chat-toggle" id="chatToggle">
+            <i class="fas fa-comments"></i>
+        </button>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        const agents = [
+            {
+                id: 1,
+                name: 'John Adekunle',
+                title: 'Senior Property Consultant',
+                image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+                location: 'Lagos',
+                experience: '12 years',
+                properties: '240+',
+                rating: '4.9',
+                status: 'online',
+                specialties: ['Luxury Villas', 'Commercial Properties', 'Land Acquisition']
+            },
+            {
+                id: 2,
+                name: 'Amina Bello',
+                title: 'Luxury Homes Specialist',
+                image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+                location: 'Abuja',
+                experience: '8 years',
+                properties: '180+',
+                rating: '4.8',
+                status: 'online',
+                specialties: ['Penthouse Apartments', 'Gated Communities', 'Property Investment']
+            },
+            {
+                id: 3,
+                name: 'Chinedu Okoro',
+                title: 'Regional Director',
+                image: 'https://images.unsplash.com/photo-1507591064344-4c6ce005-128?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+                location: 'Port Harcourt',
+                experience: '15 years',
+                properties: '320+',
+                rating: '4.9',
+                status: 'offline',
+                specialties: ['Waterfront Properties', 'Industrial Land', 'Property Development']
+            },
+            {
+                id: 4,
+                name: 'Femi Ojo',
+                title: 'Property Investment Advisor',
+                image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+                location: 'Ibadan',
+                experience: '10 years',
+                properties: '190+',
+                rating: '4.7',
+                status: 'online',
+                specialties: ['Residential Properties', 'Rental Management', 'Property Valuation']
+            },
+            {
+                id: 5,
+                name: 'Ngozi Eze',
+                title: 'Legal & Compliance Officer',
+                image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+                location: 'Enugu',
+                experience: '14 years',
+                properties: '210+',
+                rating: '4.9',
+                status: 'offline',
+                specialties: ['Title Verification', 'Legal Documentation', 'Due Diligence']
+            },
+            {
+                id: 6,
+                name: 'David Ibrahim',
+                title: 'Commercial Real Estate Expert',
+                image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+                location: 'Lagos',
+                experience: '11 years',
+                properties: '270+',
+                rating: '4.8',
+                status: 'online',
+                specialties: ['Office Spaces', 'Retail Properties', 'Warehouse Leasing']
+            }
+        ];
+
+        function loadAgents() {
+            const container = document.getElementById('agentsContainer');
+            if (!container) return;
+
+            container.innerHTML = agents.map(agent => `
+                <div class="agent-card-large reveal-on-scroll">
+                    <div class="agent-header">
+                        <div class="agent-avatar-large">
+                            <img src="${agent.image}" alt="${agent.name}">
+                        </div>
+                        <h3>${agent.name}</h3>
+                        <p class="agent-title">${agent.title}</p>
+                        <div class="agent-status ${agent.status === 'online' ? 'status-online' : 'status-offline'}">
+                            <div class="status-dot"></div>
+                            <span>${agent.status === 'online' ? 'Online Now' : 'Offline'}</span>
+                        </div>
+                    </div>
+                    <div class="agent-body">
+                        <div class="agent-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>${agent.location}</span>
+                        </div>
+                        <div class="agent-stats">
+                            <div class="agent-stat">
+                                <div class="stat-value">${agent.experience}</div>
+                                <div class="stat-label">Experience</div>
+                            </div>
+                            <div class="agent-stat">
+                                <div class="stat-value">${agent.properties}</div>
+                                <div class="stat-label">Properties</div>
+                            </div>
+                            <div class="agent-stat">
+                                <div class="stat-value">${agent.rating}</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+                        <div class="agent-specialties">
+                            <h4>Specialties:</h4>
+                            <div class="specialties-list">
+                                ${agent.specialties.map(spec => `<span class="specialty-tag">${spec}</span>`).join('')}
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-block" onclick="startChatWithAgent('${agent.name}')">
+                            <i class="fas fa-comment"></i> Start Chat
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', loadAgents);
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Auth</title>
+</head>
+<body>
+    <h1>Auth System Test</h1>
+    <button onclick="testLocalStorage()">Test LocalStorage</button>
+    <button onclick="clearLocalStorage()">Clear LocalStorage</button>
+    <button onclick="createTestUser()">Create Test User</button>
+    
+    <div id="output"></div>
+    
+    <script>
+        function testLocalStorage() {
+            const output = document.getElementById('output');
+            output.innerHTML = '';
+            
+            const luxUser = localStorage.getItem('lux_user');
+            const luxUsers = localStorage.getItem('lux_users');
+            
+            output.innerHTML += `<p><strong>lux_user:</strong> ${luxUser || 'Not found'}</p>`;
+            output.innerHTML += `<p><strong>lux_users:</strong> ${luxUsers || 'Not found'}</p>`;
+            
+            if (luxUser) {
+                try {
+                    const user = JSON.parse(luxUser);
+                    output.innerHTML += `<p>Parsed user: ${JSON.stringify(user, null, 2)}</p>`;
+                } catch (e) {
+                    output.innerHTML += `<p>Error parsing user: ${e.message}</p>`;
+                }
+            }
+            
+            if (luxUsers) {
+                try {
+                    const users = JSON.parse(luxUsers);
+                    output.innerHTML += `<p>Number of users: ${users.length}</p>`;
+                    users.forEach((user, i) => {
+                        output.innerHTML += `<p>User ${i}: ${user.email}</p>`;
+                    });
+                } catch (e) {
+                    output.innerHTML += `<p>Error parsing users: ${e.message}</p>`;
+                }
+            }
+        }
+        
+        function clearLocalStorage() {
+            localStorage.removeItem('lux_user');
+            localStorage.removeItem('lux_users');
+            document.getElementById('output').innerHTML = '<p>LocalStorage cleared!</p>';
+        }
+        
+        function createTestUser() {
+            const testUser = {
+                id: 1,
+                name: 'Test User',
+                email: 'test@luxproperties.com',
+                phone: '+234 80*******',
+                joinedDate: new Date().toISOString(),
+                savedProperties: [],
+                recentViews: [],
+                activeChats: []
+            };
+            
+            localStorage.setItem('lux_user', JSON.stringify(testUser));
+            localStorage.setItem('lux_users', JSON.stringify([{
+                ...testUser,
+                password: 'test123'
+            }]));
+            
+            document.getElementById('output').innerHTML = '<p>Test user created!<br>Email: test@luxproperties.com<br>Password: test123</p>';
+        }
+        
+        // Run test on load
+        window.onload = testLocalStorage;
+    </script>
+</body>
+</html>

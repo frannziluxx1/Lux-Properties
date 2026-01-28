@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties | Lux Properties</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="page-transition">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="lux-logo">LUX</div>
+                <div class="logo-subtitle">PROPERTIES</div>
+            </a>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="properties.html" class="nav-link active">Properties</a>
+                <a href="agents.html" class="nav-link">Agents</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="login.html" class="nav-link auth-link" id="authLink">Login</a>
+            </div>
+
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Properties Hero -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="gradient-animation"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="reveal-text">Find Your Perfect</span>
+                    <span class="reveal-text delay-1">Property</span>
+                </h1>
+                <p class="hero-subtitle fade-in-up">
+                    Browse through our curated selection of premium properties across Nigeria.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="section">
+        <div class="container">
+            <div class="property-filters">
+                <div class="filter-grid">
+                    <div class="filter-group">
+                        <label class="filter-label">Location</label>
+                        <select class="filter-select" id="locationFilter">
+                            <option value="">All Locations</option>
+                            <option value="lagos">Lagos</option>
+                            <option value="abuja">Abuja</option>
+                            <option value="port-harcourt">Port Harcourt</option>
+                            <option value="ibadan">Ibadan</option>
+                            <option value="enugu">Enugu</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Property Type</label>
+                        <select class="filter-select" id="typeFilter">
+                            <option value="">All Types</option>
+                            <option value="duplex">Duplex</option>
+                            <option value="bungalow">Bungalow</option>
+                            <option value="flat">Flat/Apartment</option>
+                            <option value="land">Land</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Price Range</label>
+                        <select class="filter-select" id="priceFilter">
+                            <option value="">Any Price</option>
+                            <option value="0-50000000">₦0 - ₦50M</option>
+                            <option value="50000000-150000000">₦50M - ₦150M</option>
+                            <option value="150000000-300000000">₦150M - ₦300M</option>
+                            <option value="300000000+">₦300M+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Bedrooms</label>
+                        <select class="filter-select" id="bedroomFilter">
+                            <option value="">Any</option>
+                            <option value="1">1+</option>
+                            <option value="2">2+</option>
+                            <option value="3">3+</option>
+                            <option value="4">4+</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="filter-actions">
+                    <button class="btn btn-primary" onclick="applyFilters()">
+                        <i class="fas fa-filter"></i> Apply Filters
+                    </button>
+                    <button class="btn btn-outline" onclick="clearFilters()">
+                        <i class="fas fa-times"></i> Clear All
+                    </button>
+                </div>
+            </div>
+
+            <!-- View Toggle -->
+            <div class="view-toggle">
+                <button class="view-btn active" id="gridView">
+                    <i class="fas fa-th-large"></i> Grid View
+                </button>
+                <button class="view-btn" id="listView">
+                    <i class="fas fa-list"></i> List View
+                </button>
+            </div>
+
+            <!-- Properties Grid -->
+            <div class="properties-grid" id="propertiesContainer">
+                <!-- Properties will be loaded via JavaScript -->
+            </div>
+            
+            <!-- Loading Spinner -->
+            <div class="loading-spinner" id="loadingSpinner" style="margin: 50px auto; display: none;"></div>
+            
+            <!-- No Results Message -->
+            <div class="empty-state" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No Properties Found</h3>
+                <p>Try adjusting your filters or search criteria</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="lux-logo">LUX</div>
+                        <div class="logo-subtitle">PROPERTIES</div>
+                    </div>
+                    <p class="footer-text">
+                        Premium real estate solutions across Nigeria. Verified listings, trusted agents, seamless transactions.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="agents.html">Agents</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="properties.html?type=buy">Buy Property</a></li>
+                        <li><a href="properties.html?type=rent">Rent Property</a></li>
+                        <li><a href="contact.html">Sell Property</a></li>
+                        <li><a href="contact.html">Property Valuation</a></li>
+                        <li><a href="contact.html">Legal Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Victoria Island, Lagos, Nigeria</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+234 90*******</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@luxproperties.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Fri: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Lux Properties. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header">
+            <div class="chat-title">
+                <i class="fas fa-comments"></i>
+                <span>Live Chat</span>
+            </div>
+            <button class="chat-close" id="chatClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-messages" id="chatMessages">
+                <!-- Chat messages will be loaded here -->
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+        <button class="chat-toggle" id="chatToggle">
+            <i class="fas fa-comments"></i>
+        </button>
+    </div>
+
+    <!-- Sticky Chat Button -->
+    <button class="sticky-chat-btn" onclick="startChatWithAgent('Property Agent')">
+        <i class="fas fa-comment"></i>
+        Chat with Agent
+    </button>
+
+    <script src="js/main.js"></script>
+    <script src="js/property-filter.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Load properties on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProperties();
+            initViewToggle();
+            
+            // Check URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const type = urlParams.get('type');
+            if (type === 'buy' || type === 'rent') {
+                const typeFilter = document.getElementById('typeFilter');
+                if (typeFilter) {
+                    typeFilter.value = type === 'buy' ? 'duplex' : 'flat';
+                    applyFilters();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

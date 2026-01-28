@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Lux Properties</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="page-transition">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="lux-logo">LUX</div>
+                <div class="logo-subtitle">PROPERTIES</div>
+            </a>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="properties.html" class="nav-link">Properties</a>
+                <a href="agents.html" class="nav-link">Agents</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="login.html" class="nav-link auth-link active" id="authLink">Login</a>
+            </div>
+
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Auth Container -->
+    <section class="auth-container">
+        <div class="auth-card fade-in">
+            <div class="auth-logo">
+                <div class="lux-logo">LUX</div>
+                <div class="logo-subtitle">PROPERTIES</div>
+            </div>
+            
+            <h2 class="auth-title">Welcome Back</h2>
+            
+            <!-- Login Form -->
+            <form class="auth-form" id="loginForm">
+                <div class="form-group">
+                    <label class="form-label" for="loginEmail">Email Address</label>
+                    <input type="email" class="form-control" id="loginEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="loginPassword">Password</label>
+                    <input type="password" class="form-control" id="loginPassword" required>
+                </div>
+                
+                <div class="form-group">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">
+                            Remember me
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                
+                <div class="form-footer">
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+            </form>
+            
+            <!-- Signup Form (Hidden by default) -->
+            <form class="auth-form" id="signupForm" style="display: none;">
+                <div class="form-group">
+                    <label class="form-label" for="signupName">Full Name</label>
+                    <input type="text" class="form-control" id="signupName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="signupEmail">Email Address</label>
+                    <input type="email" class="form-control" id="signupEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="signupPhone">Phone Number</label>
+                    <input type="tel" class="form-control" id="signupPhone" pattern="[0-9]{11}" placeholder="080XXXXXXXX" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="signupPassword">Password</label>
+                    <input type="password" class="form-control" id="signupPassword" minlength="6" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="signupConfirmPassword">Confirm Password</label>
+                    <input type="password" class="form-control" id="signupConfirmPassword" minlength="6" required>
+                </div>
+                
+                <div class="form-group">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+                        <label class="form-check-label" for="agreeTerms">
+                            I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+            </form>
+            
+            <div class="form-footer" id="toggleText">
+                Don't have an account? <a href="#" class="toggle-form">Sign up</a>
+            </div>
+            
+            <div class="auth-divider">
+                <span>OR</span>
+            </div>
+            
+            <button class="btn btn-outline btn-block" onclick="continueAsGuest()">
+                <i class="fas fa-user"></i> Continue as Guest
+            </button>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Benefits of Creating an Account</h2>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Save Properties</h3>
+                    <p>Create a personalized list of your favorite properties for easy access and comparison.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Get Notifications</h3>
+                    <p>Receive alerts for price drops, new listings, and property updates in your preferred areas.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>View History</h3>
+                    <p>Keep track of properties you've viewed and agents you've contacted.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Chat Access</h3>
+                    <p>Save your chat history and continue conversations with agents anytime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="lux-logo">LUX</div>
+                        <div class="logo-subtitle">PROPERTIES</div>
+                    </div>
+                    <p class="footer-text">
+                        Premium real estate solutions across Nigeria. Verified listings, trusted agents, seamless transactions.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="agents.html">Agents</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="properties.html?type=buy">Buy Property</a></li>
+                        <li><a href="properties.html?type=rent">Rent Property</a></li>
+                        <li><a href="contact.html">Sell Property</a></li>
+                        <li><a href="contact.html">Property Valuation</a></li>
+                        <li><a href="contact.html">Legal Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Victoria Island, Lagos, Nigeria</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+234 90*******</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@luxproperties.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Fri: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Lux Properties. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header">
+            <div class="chat-title">
+                <i class="fas fa-comments"></i>
+                <span>Live Chat</span>
+            </div>
+            <button class="chat-close" id="chatClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+        <button class="chat-toggle" id="chatToggle">
+            <i class="fas fa-comments"></i>
+        </button>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/chat.js"></script>
+    <script>
+        function continueAsGuest() {
+            window.location.href = 'properties.html';
+        }
+    </script>
+</body>
+<script>
+    // Quick test login for debugging
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Login page loaded');
+        
+        // Create demo user if none exists
+        if (!localStorage.getItem('lux_users')) {
+            const demoUser = {
+                id: Date.now(),
+                name: 'Demo User',
+                email: 'demo@luxproperties.com',
+                phone: '+234 80*******',
+                password: 'demo123',
+                joinedDate: new Date().toISOString(),
+                savedProperties: [],
+                recentViews: [],
+                activeChats: []
+            };
+            
+            localStorage.setItem('lux_users', JSON.stringify([demoUser]));
+            console.log('Demo user created');
+        }
+        
+        // Quick login button for testing
+        const quickLoginBtn = document.createElement('button');
+        quickLoginBtn.innerHTML = '<i class="fas fa-bolt"></i> Quick Login (Demo User)';
+        quickLoginBtn.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #38a169;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 9999;
+        `;
+        quickLoginBtn.onclick = function() {
+            const users = JSON.parse(localStorage.getItem('lux_users') || '[]');
+            const demoUser = users.find(u => u.email === 'demo@luxproperties.com');
+            
+            if (demoUser) {
+                const { password, ...userWithoutPassword } = demoUser;
+                localStorage.setItem('lux_user', JSON.stringify(userWithoutPassword));
+                alert('Logged in as demo user! Redirecting to dashboard...');
+                window.location.href = 'dashboard.html';
+            }
+        };
+        
+        document.body.appendChild(quickLoginBtn);
+    });
+</script>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details | Lux Properties</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="page-transition">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="lux-logo">LUX</div>
+                <div class="logo-subtitle">PROPERTIES</div>
+            </a>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="properties.html" class="nav-link">Properties</a>
+                <a href="agents.html" class="nav-link">Agents</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="login.html" class="nav-link auth-link" id="authLink">Login</a>
+            </div>
+
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Property Details -->
+    <section class="section">
+        <div class="container">
+            <!-- Breadcrumbs -->
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="properties.html">Properties</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Property Details</span>
+            </div>
+
+            <div class="property-details-content">
+                <div class="property-info">
+                    <!-- Property Gallery -->
+                    <div class="property-gallery">
+                        <div class="gallery-main">
+                            <img id="mainImage" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Luxury Villa">
+                        </div>
+                        <div class="gallery-thumbs">
+                            <div class="thumb-item active" onclick="changeImage(this)">
+                                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Living Room">
+                            </div>
+                            <div class="thumb-item" onclick="changeImage(this)">
+                                <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Bedroom">
+                            </div>
+                            <div class="thumb-item" onclick="changeImage(this)">
+                                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Kitchen">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Property Header -->
+                    <div class="property-header">
+                        <div class="property-price-main">₦450,000,000</div>
+                        <h1>Luxury Villa, Banana Island</h1>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Banana Island, Lagos, Nigeria</span>
+                        </div>
+                        <div class="property-status">
+                            <span class="badge sale">For Sale</span>
+                        </div>
+                    </div>
+
+                    <!-- Property Meta -->
+                    <div class="property-meta">
+                        <div class="meta-item">
+                            <div class="meta-icon">
+                                <i class="fas fa-bed"></i>
+                            </div>
+                            <div>
+                                <div class="meta-value">5</div>
+                                <div class="meta-label">Bedrooms</div>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-icon">
+                                <i class="fas fa-bath"></i>
+                            </div>
+                            <div>
+                                <div class="meta-value">6</div>
+                                <div class="meta-label">Bathrooms</div>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-icon">
+                                <i class="fas fa-ruler-combined"></i>
+                            </div>
+                            <div>
+                                <div class="meta-value">4,500</div>
+                                <div class="meta-label">Square Feet</div>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div>
+                                <div class="meta-value">Duplex</div>
+                                <div class="meta-label">Property Type</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Property Description -->
+                    <div class="property-description">
+                        <h3>Property Description</h3>
+                        <p>
+                            This magnificent luxury villa located in the prestigious Banana Island, Lagos, offers unparalleled 
+                            sophistication and modern living. The property features contemporary architecture with premium 
+                            finishes throughout.
+                        </p>
+                        <p>
+                            Spread across 4,500 square feet, this duplex boasts 5 spacious bedrooms with ensuite bathrooms, 
+                            a state-of-the-art kitchen with premium appliances, a formal dining room, and multiple living areas. 
+                            The master suite includes a walk-in closet and a private balcony with stunning views.
+                        </p>
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>24/7 security and gated community</li>
+                            <li>Smart home automation system</li>
+                            <li>Swimming pool and jacuzzi</li>
+                            <li>Landscaped garden with outdoor entertainment area</li>
+                            <li>Three-car garage with electric charging ports</li>
+                            <li>Backup power system (25KVA generator and solar)</li>
+                            <li>Central air conditioning throughout</li>
+                            <li>Premium imported marble flooring</li>
+                        </ul>
+                        <p>
+                            Located in one of Lagos' most exclusive neighborhoods, this property offers privacy, security, 
+                            and luxury living at its finest. Close to international schools, shopping centers, and business 
+                            districts.
+                        </p>
+                    </div>
+
+                    <!-- Property Features -->
+                    <div class="property-features-list">
+                        <h3>Additional Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Modern Security System</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Swimming Pool</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Garden</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Garage</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Balcony</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Air Conditioning</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Gym</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Study Room</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Location Map -->
+                    <div class="property-map">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Location Map (Banana Island, Lagos)</span>
+                    </div>
+                </div>
+
+                <!-- Property Sidebar -->
+                <div class="property-sidebar">
+                    <!-- Agent Card -->
+                    <div class="agent-card">
+                        <div class="agent-avatar">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="John Adekunle">
+                        </div>
+                        <h3>John Adekunle</h3>
+                        <div class="agent-status status-online">
+                            <div class="status-dot"></div>
+                            <span>Online</span>
+                        </div>
+                        <p class="agent-bio">
+                            Senior Property Consultant with 12 years of experience in luxury real estate across Nigeria.
+                        </p>
+                        <div class="agent-contact">
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+234 90*******</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>john@luxproperties.com</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-block" onclick="startChatWithAgent('John Adekunle')">
+                            <i class="fas fa-comment"></i> Chat with Agent
+                        </button>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button class="btn btn-primary btn-block" onclick="saveProperty()">
+                            <i class="fas fa-heart"></i> Save Property
+                        </button>
+                        <button class="btn btn-secondary btn-block" onclick="window.location.href='contact.html'">
+                            <i class="fas fa-calendar"></i> Schedule Viewing
+                        </button>
+                        <button class="btn btn-outline btn-block" onclick="window.print()">
+                            <i class="fas fa-print"></i> Print Details
+                        </button>
+                    </div>
+
+                    <!-- Mortgage Calculator -->
+                    <div class="mortgage-calculator">
+                        <h4>Mortgage Estimate</h4>
+                        <div class="mortgage-result">
+                            <div class="mortgage-item">
+                                <span>Estimated Monthly Payment:</span>
+                                <strong>₦2,500,000</strong>
+                            </div>
+                            <small>Based on 30% down payment, 20-year term at 18% interest</small>
+                        </div>
+                        <button class="btn btn-outline btn-block" onclick="window.location.href='contact.html'">
+                            <i class="fas fa-calculator"></i> Calculate Mortgage
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Similar Properties -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Similar Properties</h2>
+            <div class="properties-grid">
+                <!-- Similar properties will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="lux-logo">LUX</div>
+                        <div class="logo-subtitle">PROPERTIES</div>
+                    </div>
+                    <p class="footer-text">
+                        Premium real estate solutions across Nigeria. Verified listings, trusted agents, seamless transactions.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="agents.html">Agents</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="properties.html?type=buy">Buy Property</a></li>
+                        <li><a href="properties.html?type=rent">Rent Property</a></li>
+                        <li><a href="contact.html">Sell Property</a></li>
+                        <li><a href="contact.html">Property Valuation</a></li>
+                        <li><a href="contact.html">Legal Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Victoria Island, Lagos, Nigeria</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+234 90*******</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@luxproperties.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Fri: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Lux Properties. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header">
+            <div class="chat-title">
+                <i class="fas fa-comments"></i>
+                <span>Live Chat</span>
+            </div>
+            <button class="chat-close" id="chatClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+        <button class="chat-toggle" id="chatToggle">
+            <i class="fas fa-comments"></i>
+        </button>
+    </div>
+
+    <!-- Sticky Chat Button -->
+    <button class="sticky-chat-btn" onclick="startChatWithAgent('Property Agent')">
+        <i class="fas fa-comment"></i>
+        Chat with Agent
+    </button>
+
+    <script src="js/main.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        function changeImage(element) {
+            const mainImage = document.getElementById('mainImage');
+            const thumbImg = element.querySelector('img');
+            const thumbs = document.querySelectorAll('.thumb-item');
+            
+            thumbs.forEach(thumb => thumb.classList.remove('active'));
+            element.classList.add('active');
+            mainImage.src = thumbImg.src.replace('w=400', 'w=1200');
+        }
+
+        function saveProperty() {
+            const property = {
+                id: 1,
+                image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                title: 'Luxury Villa, Banana Island',
+                location: 'Banana Island, Lagos, Nigeria',
+                price: '₦450,000,000',
+                type: 'For Sale'
+            };
+            
+            if (typeof saveProperty === 'function') {
+                window.saveProperty(property);
+            }
+        }
+
+        // Add recent view
+        document.addEventListener('DOMContentLoaded', function() {
+            const property = {
+                id: 1,
+                image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                title: 'Luxury Villa, Banana Island',
+                location: 'Banana Island, Lagos, Nigeria',
+                price: '₦450,000,000'
+            };
+            
+            if (typeof addRecentView === 'function') {
+                addRecentView(property);
+            }
+        });
+    </script>
+</body>
+</html>
