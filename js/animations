@@ -1,0 +1,265 @@
+// Animations for Lux Properties
+
+class LuxAnimations {
+    constructor() {
+        this.initScrollAnimations();
+        this.initHoverEffects();
+        this.initPageTransitions();
+    }
+    
+    initScrollAnimations() {
+        // Create Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    this.animateElement(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all elements with animation classes
+        const animatedElements = document.querySelectorAll(
+            '.reveal-on-scroll, .fade-in, .stagger-item'
+        );
+        
+        animatedElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Parallax effect for hero
+        this.initParallax();
+    }
+    
+    animateElement(element) {
+        if (element.classList.contains('reveal-on-scroll')) {
+            element.classList.add('revealed');
+        }
+        
+        if (element.classList.contains('stagger-item')) {
+            const index = Array.from(element.parentElement.children).indexOf(element);
+            element.style.animationDelay = `${index * 0.1}s`;
+            element.classList.add('animated');
+        }
+        
+        // Add specific animations based on element type
+        if (element.classList.contains('property-card')) {
+            this.animatePropertyCard(element);
+        }
+        
+        if (element.classList.contains('service-card')) {
+            this.animateServiceCard(element);
+        }
+    }
+    
+    animatePropertyCard(card) {
+        // Add subtle scale animation
+        card.style.transform = 'scale(0.95)';
+        card.style.opacity = '0';
+        
+        setTimeout(() => {
+            card.style.transition = 'all 0.5s ease';
+            card.style.transform = 'scale(1)';
+            card.style.opacity = '1';
+        }, 100);
+    }
+    
+    animateServiceCard(card) {
+        const icon = card.querySelector('.service-icon');
+        if (icon) {
+            icon.style.transform = 'translateY(-20px)';
+            icon.style.opacity = '0';
+            
+            setTimeout(() => {
+                icon.style.transition = 'all 0.6s ease';
+                icon.style.transform = 'translateY(0)';
+                icon.style.opacity = '1';
+            }, 200);
+        }
+    }
+    
+    initHoverEffects() {
+        // Image hover zoom
+        const propertyImages = document.querySelectorAll('.property-image img');
+        propertyImages.forEach(img => {
+            img.parentElement.addEventListener('mouseenter', () => {
+                img.style.transform = 'scale(1.05)';
+            });
+            
+            img.parentElement.addEventListener('mouseleave', () => {
+                img.style.transform = 'scale(1)';
+            });
+        });
+        
+        // Card hover lift
+        const cards = document.querySelectorAll('.property-card, .service-card, .location-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+                card.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.1)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = 'var(--box-shadow)';
+            });
+        });
+        
+        // Button hover effects
+        const buttons = document.querySelectorAll('.btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                btn.style.transform = 'translateY(-2px)';
+            });
+            
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translateY(0)';
+            });
+        });
+    }
+    
+    initParallax() {
+        const hero = document.querySelector('.hero');
+        if (!hero) return;
+        
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            const heroContent = hero.querySelector('.hero-content');
+            if (heroContent) {
+                heroContent.style.transform = `translateY(${rate * 0.5}px)`;
+            }
+        });
+    }
+    
+    initPageTransitions() {
+        // Add page transition class to body
+        document.body.classList.add('page-transition');
+        
+        // Handle link clicks for smooth transitions
+        const links = document.querySelectorAll('a[href^="http"]:not([target="_blank"]), a[href^="/"], a[href^="#"]');
+        
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Skip for anchor links
+                if (link.getAttribute('href').startsWith('#')) return;
+                
+                // Skip for external links
+                if (link.getAttribute('href').startsWith('http') && 
+                    !link.getAttribute('href').includes(window.location.hostname)) return;
+                
+                e.preventDefault();
+                const href = link.getAttribute('href');
+                
+                // Add fade out animation
+                document.body.style.opacity = '0';
+                document.body.style.transition = 'opacity 0.3s ease';
+                
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 300);
+            });
+        });
+    }
+    
+    // Text reveal animation
+    revealText(element) {
+        const text = element.textContent;
+        element.textContent = '';
+        
+        for (let i = 0; i < text.length; i++) {
+            setTimeout(() => {
+                element.textContent += text[i];
+            }, i * 50);
+        }
+    }
+    
+    // Counter animation
+    animateCounter(element, target, duration = 2000) {
+        let start = 0;
+        const increment = target / (duration / 16);
+        const timer = setInterval(() => {
+            start += increment;
+            if (start >= target) {
+                element.textContent = target;
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(start);
+            }
+        }, 16);
+    }
+    
+    // Floating animation
+    initFloatingElements() {
+        const floatElements = document.querySelectorAll('.float-element');
+        floatElements.forEach(element => {
+            element.style.animation = 'float 3s ease-in-out infinite';
+        });
+    }
+}
+
+// Initialize animations when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    window.luxAnimations = new LuxAnimations();
+    
+    // Add specific animations for hero section
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+        setTimeout(() => {
+            heroTitle.style.opacity = '1';
+            heroTitle.style.transform = 'translateY(0)';
+        }, 500);
+    }
+    
+    // Animate stats counters
+    const stats = document.querySelectorAll('.stat-number');
+    stats.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-count'));
+        if (target > 0) {
+            window.luxAnimations.animateCounter(stat, target);
+        }
+    });
+});
+
+// Add CSS for animations
+const style = document.createElement('style');
+style.textContent = `
+    .page-transition {
+        animation: fadeIn 0.5s ease;
+    }
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    
+    .float-element {
+        animation: float 3s ease-in-out infinite;
+    }
+    
+    .reveal-text {
+        display: inline-block;
+        animation: revealText 1s ease forwards;
+        opacity: 0;
+    }
+    
+    @keyframes revealText {
+        from {
+            clip-path: inset(0 100% 0 0);
+            transform: translateX(-20px);
+            opacity: 0;
+        }
+        to {
+            clip-path: inset(0 0 0 0);
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+`;
+document.head.appendChild(style);
